@@ -116,7 +116,14 @@ Assicurati che nuctl sia disponibile sulla board e che un registry Docker locale
 ```text
 .
 ├── functions/
-│   └── fn1.go                   # Funzione Nuclio con trigger RabbitMQ
+│   ├── fn1.go                   # Funzione Nuclio con trigger RabbitMQ (architettura event-driven)
+│   ├── complexity/               # Esperimento: complessità O(n)/O(n²)/O(n³) su lettura file
+│   │   ├── complexity_1.go / .py # O(n)
+│   │   ├── complexity_2.go / .py # O(n²)
+│   │   └── complexity_3.go       # O(n³)
+│   └── benchmarks/               # Esperimento: complessità O(n)/O(n²) su operazioni array
+│       ├── sum.go, monitoring_on.py     # O(n) - somma array
+│       └── bubblesort.go, monitoring_on2.py # O(n²) - bubble sort
 ├── board/
 │   └── server.js                # Miniserver Node.js sulla board
 ├── deploy/
